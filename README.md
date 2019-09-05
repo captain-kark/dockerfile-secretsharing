@@ -1,7 +1,7 @@
 The document to split into keyshares should be mounted into the `/app/split` directory of the container. The resulting keyshare files to distribute will appear next to it once the container terminates.
 
 ```
-docker run --rm -it -v "${PWD}/split/:/app/split/" captainkark/secretsharing split /app/split/foobar.txt
+docker run --rm -it -v "${PWD}/split/:/app/split/" captainkark/secretsharing:9b29721 split /app/split/foobar.txt
 ```
 
 Afterwards, on the host machine:
@@ -29,7 +29,7 @@ mv ./split/foobar-5 ./recover/
 Point the recover script at the directory where the shards are located.
 
 ```
-docker run --rm -it -v "${PWD}/recover/:/app/recover/" captainkark/secretsharing recover /app/recover/
+docker run --rm -it -v "${PWD}/recover/:/app/recover/" captainkark/secretsharing:9b29721 recover /app/recover/
 ```
 
 The original secret will appear next to the shards once the container terminates.
